@@ -7,6 +7,7 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-postcss',
-    'gatsby-plugin-layout'
+    'gatsby-plugin-layout',
+    'gatsby-plugin-sass'
   ],
 }
