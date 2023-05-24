@@ -5,5 +5,7 @@ module.exports = {
   siteMetadata: {
     siteUrl: `http://114.115.166.103`,
   },
-  plugins: [],
+  plugins: [
+    'gatsby-plugin-postcss',
+  ],
 }
