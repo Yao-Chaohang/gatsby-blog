@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery, navigate } from 'gatsby'
 import { StaticImage } from "gatsby-plugin-image"
 import { Menu, Avatar, Input } from 'antd'
 import { UserOutlined, AlignLeftOutlined } from '@ant-design/icons'
@@ -34,6 +34,7 @@ const Header = () => {
 
   const menuClick = (e) => {
     setCurrent(e.key)
+    navigate(e.key)
   }
 
   const onSearch = (value) => console.log(value)
@@ -51,7 +52,7 @@ const Header = () => {
       </div>
       <div className='header-right'>
         <div className='search'>
-        <Search placeholder="搜索" onSearch={onSearch} style={{ width: 200 }} />
+        <Search placeholder="搜索" onSearch={onSearch} />
         </div>
         <div class='user'>
           <Avatar size="large" icon={<UserOutlined />} />
