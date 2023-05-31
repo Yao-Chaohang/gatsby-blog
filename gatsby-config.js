@@ -3,11 +3,21 @@
  */
 module.exports = {
   siteMetadata: {
-    siteUrl: `http://114.115.166.103`,
+    siteUrl: `https://www.chaohangweb.cn`,
   },
   plugins: [
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     'gatsby-plugin-postcss',
     'gatsby-plugin-layout',
-    'gatsby-plugin-sass'
+    'gatsby-plugin-sass',
+    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./src/data/`,
+      },
+    },
   ],
 }

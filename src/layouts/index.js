@@ -1,9 +1,10 @@
 import * as React from "react"
+import Header from '../components/Header'
 
 const Layout = ({ children }) => {
     return (
         <div>
-            <header>头部</header>
+            <Header />
             {children}
         </div>
     )

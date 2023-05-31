@@ -1,0 +1,24 @@
+{
+  "nav": [
+    {
+      "label": "首页",
+      "path": "/"
+    },
+    {
+      "label": "凌乱代码",
+      "path": "/coding"
+    },
+    {
+      "label": "生活圈",
+      "path": "/everyday"
+    },
+    {
+      "label": "标签云",
+      "path": "/tag-cloud"
+    },
+    {
+      "label": "友情链接",
+      "path": "/blogroll"
+    }
+  ]
+}

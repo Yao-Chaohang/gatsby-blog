@@ -1,0 +1,12 @@
+$screenIphoneSize: 900px;
+
+@mixin respond-to($breakname) {
+  @if $breakname == 'iphone' {
+      @media (max-width: $screenIphoneSize) {
+          @content;
+      }
+  }
+  @else if $breakname == 'pc' {
+      @content;
+  }
+}
