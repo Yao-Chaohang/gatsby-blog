@@ -4,8 +4,9 @@ import '../styles/index.scss'
 
 const IndexPage = () => {
   return (
-    <main>
+    <main className="home">
       <Banner />
+      <div className="content"></div>
     </main>
   )
 }

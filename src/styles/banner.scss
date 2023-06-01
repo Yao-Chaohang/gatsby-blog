@@ -23,6 +23,9 @@ $screenIphoneSize: 900px;
 }
 
 .banner {
+  .website-info {
+    background-color: #ffffff;
+  }
   @include respond-to('pc') {
     height: 280px;
     .website-info {
