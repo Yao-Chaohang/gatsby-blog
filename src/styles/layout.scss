@@ -1,2 +1,36 @@
-.content-main {
+$screenIphoneSize: 900px;
+
+@mixin respond-to($breakname) {
+  @if $breakname == 'iphone' {
+      @media (max-width: $screenIphoneSize) {
+          @content;
+      }
+  }
+  @else if $breakname == 'pc' {
+      @content;
+  }
+}
+
+.layout {
+  .layout-body {
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 20px;
+    background-color: #f9f9f9;
+    @include respond-to('pc') {
+      .website-left {
+        margin-top: 28px;
+        margin-right: 10px;
+        width: 330px;
+        min-height: 400px;
+        background-color: pink;
+      }
+
+      .website-right {
+        width: 100%;
+        min-height: 400px;
+      }
+    }
+  }
 }

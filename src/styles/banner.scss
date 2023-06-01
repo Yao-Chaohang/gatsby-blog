@@ -27,18 +27,23 @@ $screenIphoneSize: 900px;
     background-color: #ffffff;
   }
   @include respond-to('pc') {
-    height: 280px;
     .website-info {
+      height: 280px;
       position: relative;
       height: 60px;
       .avatar {
         position: absolute;
         bottom: -30px;
         left: 16px;
+        width: 180px;
+        height: 188px;
+        @include flex-center;
+        justify-content: center;
+        border: 8px solid rgba(188, 188, 188, 0.1);
         .gatsby-image-wrapper {
           transition: all .3s ease;
-          width: 180px;
-          height: 180px;
+          width: 172px;
+          height: 172px;
         }
       }
       .bas-info {
@@ -66,18 +71,23 @@ $screenIphoneSize: 900px;
     }
   }
   @include respond-to('iphone') {
-    height: 150px;
     .website-info {
+      height: 150px;
       position: relative;
       height: 60px;
       .avatar {
         position: absolute;
         bottom: 5px;
         left: 10px;
+        width: 120px;
+        height: 128px;
+        @include flex-center;
+        justify-content: center;
+        border: 3px solid rgba(188, 188, 188, 0.1);
         .gatsby-image-wrapper {
           transition: all .3s ease;
-          width: 120px;
-          height: 120px;
+          width: 117px;
+          height: 117px;
         }
       }
       .bas-info {

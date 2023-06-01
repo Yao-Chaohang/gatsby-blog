@@ -1,12 +1,10 @@
 import * as React from "react"
-import Banner from '../components/Banner'
 import '../styles/index.scss'
 
 const IndexPage = () => {
   return (
     <main className="home">
-      <Banner />
-      <div className="content"></div>
+      <div className="content">内容</div>
     </main>
   )
 }
