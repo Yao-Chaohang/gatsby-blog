@@ -23,9 +23,84 @@ $screenIphoneSize: 900px;
 }
 
 .banner {
-  background-color: pink;
   @include respond-to('pc') {
     height: 280px;
+    .website-info {
+      position: relative;
+      height: 60px;
+      .avatar {
+        position: absolute;
+        bottom: -30px;
+        left: 16px;
+        .gatsby-image-wrapper {
+          transition: all .3s ease;
+          width: 180px;
+          height: 180px;
+        }
+      }
+      .bas-info {
+        position: relative;
+        left: 227px;
+        width: auto;
+        height: 100%;
+        .bas-info-ul {
+          @include flex-center;
+          height: 100%;
+          color: #666666;
+          .bas-info-li {
+            display: flex;
+            flex-direction: column;
+            margin: 0 20px;
+            text-align: center;
+            line-height: 23px;
+            font-size: 12px;
+            .label {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+  @include respond-to('iphone') {
+    height: 150px;
+    .website-info {
+      position: relative;
+      height: 60px;
+      .avatar {
+        position: absolute;
+        bottom: 5px;
+        left: 10px;
+        .gatsby-image-wrapper {
+          transition: all .3s ease;
+          width: 120px;
+          height: 120px;
+        }
+      }
+      .bas-info {
+        position: relative;
+        left: 155px;
+        width: auto;
+        height: 100%;
+        transition: all .3s ease;
+        .bas-info-ul {
+          @include flex-center;
+          height: 100%;
+          color: #666666;
+          .bas-info-li {
+            display: flex;
+            flex-direction: column;
+            margin: 0 10px;
+            text-align: center;
+            line-height: 23px;
+            font-size: 12px;
+            .label {
+              font-size: 13px;
+            }
+          }
+        }
+      }
+    }
   }
   .banner-image {
     height: 100%;
