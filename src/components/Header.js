@@ -54,7 +54,7 @@ const Header = () => {
         <div className='search'>
         <Search placeholder="搜索" onSearch={onSearch} />
         </div>
-        <div class='user'>
+        <div className='user'>
           <Avatar size="large" icon={<UserOutlined />} />
         </div>
       </div>
