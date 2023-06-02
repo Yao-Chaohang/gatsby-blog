@@ -8,10 +8,10 @@ const Layout = ({ children }) => {
         <div className="layout">
             <Header />
             <Banner />
-            <div className="layout-body">
+            {/* <div className="layout-body">
                 <div className='website-left'></div>
                 <div className='website-right'>{children}</div>
-            </div>
+            </div> */}
         </div>
     )
 }
