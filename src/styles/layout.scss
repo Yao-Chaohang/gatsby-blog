@@ -18,18 +18,25 @@ $screenIphoneSize: 900px;
     justify-content: space-between;
     flex-grow: 20px;
     background-color: #f9f9f9;
+    .website-left {
+      transition: all .3s ease;
+    }
     @include respond-to('pc') {
       .website-left {
         margin-top: 28px;
         margin-right: 10px;
-        width: 330px;
+        width: 400px;
         min-height: 400px;
-        background-color: pink;
       }
 
       .website-right {
         width: 100%;
         min-height: 400px;
+      }
+    }
+    @include respond-to('iphone') {
+      .website-left {
+        display: none;
       }
     }
   }

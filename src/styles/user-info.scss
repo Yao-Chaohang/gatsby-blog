@@ -1,0 +1,23 @@
+.user-info {
+    margin-bottom: 20px;
+    padding: 20px 10px;
+    background-color: #fff;
+    ul {
+        line-height: 30px;
+        color: var(--theme-text);
+        .name {
+            display: flex;
+            align-items: center;
+            color: var(--theme-title);
+            font-size: 16px;
+            letter-spacing: 5px;
+        }
+        li {
+            font-size: 13px;
+        }
+    }
+    .ant-btn-primary {
+        width: 100%;
+        background-color: var(--theme-antd);
+    }
+}

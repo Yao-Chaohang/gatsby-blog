@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --theme-antd: #1677ff;
+    --theme-title: #424242;
+    --theme-text: #5e5e5e;
+}

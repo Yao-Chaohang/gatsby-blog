@@ -1,6 +1,7 @@
 import * as React from "react"
 import Header from '../components/Header'
 import Banner from '../components/Banner'
+import UserInfo from "../components/UserInfo"
 import '../styles/layout.scss'
 
 const Layout = ({ children }) => {
@@ -8,10 +9,12 @@ const Layout = ({ children }) => {
         <div className="layout">
             <Header />
             <Banner />
-            {/* <div className="layout-body">
-                <div className='website-left'></div>
+            <div className="layout-body">
+                <div className='website-left'>
+                    <UserInfo />
+                </div>
                 <div className='website-right'>{children}</div>
-            </div> */}
+            </div>
         </div>
     )
 }

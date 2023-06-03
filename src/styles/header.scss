@@ -144,10 +144,10 @@ $screenIphoneSize: 900px;
         height: 100%;
         padding-top: 5px;
         h4 {
-          color: #424242;
+          color: var(--theme-title);
         }
         p {
-          color: #5e5e5e;
+          color: var(--theme-text);
           font-size: 12px;
         }
       }
@@ -163,7 +163,7 @@ $screenIphoneSize: 900px;
         color: #4f4f4f;
       }
       .active {
-        color: #1677ff;
+        color: var(--theme-antd);
       }
     }
   }
