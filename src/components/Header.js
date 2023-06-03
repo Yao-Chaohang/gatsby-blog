@@ -26,15 +26,15 @@ const Header = () => {
     }
   `)
 
-  useEffect(() => {
-    new hoverEffect({
-      parent: document.querySelector('.drawer-banner-image') ,
-      intensity: 0.3,
-      image1: banner1,
-      image2: banner2,
-      displacementImage: banner2
-    })
-  })
+  // useEffect(() => {
+  //   new hoverEffect({
+  //     parent: document.querySelector('.drawer-banner-image') ,
+  //     intensity: 0.3,
+  //     image1: banner1,
+  //     image2: banner2,
+  //     displacementImage: banner2
+  //   })
+  // }, [])
   
   const [current, setCurrent] = useState('/')
   const [openDrawer, setOpenDrawer] = useState(false)
@@ -47,6 +47,7 @@ const Header = () => {
   })
 
   const menuClick = (e) => {
+    onClose()
     setCurrent(e.key)
     navigate(e.key)
   }
@@ -55,6 +56,15 @@ const Header = () => {
 
   const showDrawer = () => {
     setOpenDrawer(true);
+    setTimeout(() => {
+      new hoverEffect({
+        parent: document.querySelector('.drawer-banner-image') ,
+        intensity: 0.3,
+        image1: banner1,
+        image2: banner2,
+        displacementImage: banner2
+      })
+    })
   }
 
   const onClose = () => {
@@ -88,19 +98,38 @@ const Header = () => {
         onClose={onClose}
         open={openDrawer}
         key="left"
-        width="60%"
+        width="70%"
         bodyStyle={{ padding: '0' }}
         headerStyle={{ width: '100%', padding: '5px 10px', border: 'none', position: 'absolute' }}
         closeIcon={
           <span></span>
         }
         extra={
-          <CloseOutlined onClick={onClose} />
+          <CloseOutlined style={{ color: '#ffffff' }} onClick={onClose} />
         }
       >
         <div className='drawer-banner'>
-          <div className='drawer-banner-image'></div>
-          <div className='user'></div>
+          { openDrawer && <div className='drawer-banner-image'></div> }
+          <div className='user'>
+            <div className='avatar'>
+              <StaticImage src="../images/avatar.jpg" alt="logo" />
+            </div>
+            <div className='info'>
+              <h4>像素脉动</h4>
+              <p>60+年前端开发经验</p>
+            </div>
+          </div>
+        </div>
+        <div className='drawer-nav'>
+          <ul>
+            {
+              items && items.map(item => {
+                return (
+                  <li key={item.key} className={current === item.key ? 'active' : ''} onClick={() => menuClick(item)}>{item.label}</li>
+                )
+              })
+            }
+          </ul>
         </div>
       </Drawer>
     </header>

@@ -46,7 +46,7 @@ const Banner = () => {
       image2: banner2,
       displacementImage: banner2
     })
-  })
+  }, [])
 
   return (
     <div className='banner'>
