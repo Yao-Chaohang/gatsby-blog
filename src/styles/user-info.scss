@@ -19,5 +19,12 @@
     .ant-btn-primary {
         width: 100%;
         background-color: var(--theme-antd);
+        .ant-btn-icon {
+            display: inline-block;
+            margin-top: -4px;
+            font-size: 14px;
+            vertical-align: middle;
+            margin-inline-end: 5px !important;
+        }
     }
 }
