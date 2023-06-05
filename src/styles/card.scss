@@ -1,0 +1,19 @@
+.card {
+    padding: 10px;
+    background-color: #ffffff;
+    .title-container {
+        margin-bottom: 8px;
+        .title {
+            font-size: 14px;
+            color: var(--theme-title);
+        }
+        .english-title {
+            font-size: 13px;
+            color: var(--theme-text);
+        }
+    }
+    .card-content {
+        font-size: 13px;
+        color: var(--theme-text);
+    }
+}

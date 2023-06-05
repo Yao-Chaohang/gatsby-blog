@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import hoverEffect from 'hover-effect'
 import { graphql, useStaticQuery, navigate } from 'gatsby'
 import { StaticImage } from "gatsby-plugin-image"
@@ -25,16 +25,6 @@ const Header = () => {
       }
     }
   `)
-
-  // useEffect(() => {
-  //   new hoverEffect({
-  //     parent: document.querySelector('.drawer-banner-image') ,
-  //     intensity: 0.3,
-  //     image1: banner1,
-  //     image2: banner2,
-  //     displacementImage: banner2
-  //   })
-  // }, [])
   
   const [current, setCurrent] = useState('/')
   const [openDrawer, setOpenDrawer] = useState(false)
@@ -125,7 +115,9 @@ const Header = () => {
             {
               items && items.map(item => {
                 return (
-                  <li key={item.key} className={current === item.key ? 'active' : ''} onClick={() => menuClick(item)}>{item.label}</li>
+                  <li key={item.key} className={current === item.key ? 'active' : ''}>
+                    <button onClick={() => menuClick(item)}>{item.label}</button>
+                  </li>
                 )
               })
             }
