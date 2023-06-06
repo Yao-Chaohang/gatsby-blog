@@ -1,39 +1,28 @@
 import * as React from "react"
+import { graphql, useStaticQuery } from 'gatsby'
 import Header from '../components/Header'
 import Banner from '../components/Banner'
 import UserInfo from "../components/UserInfo"
 import Card from '../components/Card'
+import { CalendarOutlined } from '@ant-design/icons'
 import '../styles/layout.scss'
 
-// 模拟公告
-const announcement = [
-    {
-        time: '2023-6-4',
-        content: '测试公告列表1'
-    },
-    {
-        time: '2023-6-4',
-        content: '测试公告列表2'
-    },
-    {
-        time: '2023-6-4',
-        content: '测试公告列表3'
-    },
-    {
-        time: '2023-6-4',
-        content: '测试公告列表4'
-    },
-    {
-        time: '2023-6-4',
-        content: '测试公告列表5'
-    },
-    {
-        time: '2023-6-4',
-        content: '测试公告列表6'
-    }
-]
-
 const Layout = ({ children }) => {
+    const { allDataJson: { nodes } } = useStaticQuery(graphql`
+        query {
+            allDataJson {
+                nodes {
+                    announcement {
+                        content
+                        time
+                    }
+                }
+            }
+        }
+    `)
+
+    const announcement = nodes[1].announcement
+
     return (
         <div className="layout">
             <Header />
@@ -48,7 +37,10 @@ const Layout = ({ children }) => {
                                     {
                                         announcement && announcement.map(item => {
                                             return (
-                                                <li key={item.content}>{item.time}  {item.content.length > 15 ? item.content.substring(0, 14) + '...' : item.content}</li>
+                                                <li key={item.content}>
+                                                    <CalendarOutlined />
+                                                    {item.time}  {item.content.length > 15 ? item.content.substring(0, 14) + '...' : item.content}
+                                                </li>
                                             )
                                         })
                                     }
