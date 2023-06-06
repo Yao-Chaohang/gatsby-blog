@@ -3,7 +3,7 @@ title: 推荐一个好用的CSS动画素材网站
 date: 2023-06-05 15:05:49
 tags:
     - CSS
-categories: coding
+categories: everyday
 ---
 
 ## 前端可视化
