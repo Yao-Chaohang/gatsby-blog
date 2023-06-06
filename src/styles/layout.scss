@@ -41,6 +41,19 @@ $screenIphoneSize: 900px;
               }
             }
           }
+          .article-list {
+            line-height: 20px;
+            li {
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              .anticon {
+                display: inline-block;
+                margin: -3px 5px 0 0;
+                vertical-align: middle;
+              }
+            }
+          }
         }
       }
 
