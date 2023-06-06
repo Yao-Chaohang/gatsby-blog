@@ -5,7 +5,6 @@ tags:
   - 前端开发
   - JavaScript
 categories: coding
-comments: false
 ---
 
 ## JS的数据类型
