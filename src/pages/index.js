@@ -4,7 +4,7 @@ import ContentCard from "../components/ContentCard"
 import '../styles/index.scss'
 
 const IndexPage = () => {
-  const { allMarkdownRemark: { edges } } = useStaticQuery(graphql`
+  const { allMarkdownRemark } = useStaticQuery(graphql`
     query {
       allMarkdownRemark {
         edges {
@@ -16,13 +16,23 @@ const IndexPage = () => {
               tags
               categories
             }
+            id
+            excerpt(format: PLAIN, pruneLength: 80)
+          }
+        }
+        nodes {
+          fields {
+            slug
           }
         }
       }
     }
   `)
 
-  const contentList = edges
+  const contentList = allMarkdownRemark.edges
+  contentList.forEach((item, index) => {
+    contentList[index].node.slug = allMarkdownRemark.nodes[index].fields.slug
+  })
 
   return (
     <main className="home">
@@ -36,10 +46,11 @@ const IndexPage = () => {
                 time={item.node.frontmatter.date}
                 source={item.node.frontmatter.categories}
                 tags={item.node.frontmatter.tags}
+                slug={item.node.slug}
               >
                 {
                   {
-                    'description': <span>描述信息</span>
+                    'description': <span>{item.node.excerpt}</span>
                   }
                 }
               </ContentCard>

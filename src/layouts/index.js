@@ -6,6 +6,8 @@ import UserInfo from "../components/UserInfo"
 import Card from '../components/Card'
 import { CalendarOutlined } from '@ant-design/icons'
 import '../styles/layout.scss'
+import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
+deckDeckGoHighlightElement();
 
 const Layout = ({ children }) => {
     const { allDataJson: { nodes } } = useStaticQuery(graphql`

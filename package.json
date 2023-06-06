@@ -15,12 +15,14 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@deckdeckgo/highlight-code": "^3.6.0",
     "antd": "^5.5.1",
     "gatsby": "^5.10.0",
     "gatsby-plugin-image": "^3.10.0",
     "gatsby-plugin-layout": "^4.10.0",
     "gatsby-plugin-sass": "^6.10.0",
     "gatsby-plugin-sharp": "^5.10.0",
+    "gatsby-remark-highlight-code": "^3.3.0",
     "gatsby-source-filesystem": "^5.10.0",
     "gatsby-transformer-json": "^5.10.0",
     "gatsby-transformer-remark": "^6.10.0",

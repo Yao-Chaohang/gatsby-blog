@@ -8,6 +8,7 @@ tags:
  - Vue
  - JavaScript
 categories: 前端开发
+contentType: 1
 ---
 
 ## 这是一个标题
@@ -19,3 +20,11 @@ categories: 前端开发
 * 第一项内容
 * 第二项内容
 * 第三项内容
+
+```js
+function demo() {
+    console.log('hello world')
+}
+```
+
+contentType: 0 转载 | 1原创

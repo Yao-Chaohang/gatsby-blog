@@ -1,9 +1,10 @@
 import React from 'react'
 import { StaticImage } from "gatsby-plugin-image"
+import { Link } from 'gatsby'
 import '../styles/content-card.scss'
 
 const ContentCard = (props) => {
-    const { name, time, title, source, tags, children } = props
+    const { name, time, title, source, tags, contentType, slug, children } = props
     return (
         <div className="content-card">
             <div className="content-card-header">
@@ -16,8 +17,14 @@ const ContentCard = (props) => {
                 </div>
             </div>
             <div className='content-card-title'>
-                {/* <span className='content-type'>[转载]</span> */}
-                <span>{title || ''}</span>
+                <span className='content-type'>
+                    { contentType === '0' ? <span className='transshipment'>[转载]</span> : <span className='original'>[原创]</span> }
+                </span>
+                <span className='title'>
+                    <Link to={`/${slug}`}>
+                        {title || ''}
+                    </Link>
+                </span>
                 <span className='source-nav'># {source || ''}</span>
             </div>
             <div className='content-card-description'>{children.description || ''}</div>
