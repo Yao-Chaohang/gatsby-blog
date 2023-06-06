@@ -4,7 +4,7 @@ date: "2023-06-06"
 author: 超航
 tags:
  - CSS
-categories: CSS
+categories: coding
 ---
 
 > 在项目中使用到渲染markdown文章的需求，但是项目中把浏览器的默认样式给清除掉了，导致markdown渲染样式出现问题，我们可以单独在需要渲染markdown的文件中手动添加markdown样式来解决，在网上找到了一个很好用的样式表，推荐给大家。

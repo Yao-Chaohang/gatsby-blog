@@ -10,7 +10,7 @@ const IndexPage = () => {
         edges {
           node {
             frontmatter {
-              date
+              date(formatString: "YYYY-MM-DD")
               title
               author
               tags

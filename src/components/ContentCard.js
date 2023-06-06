@@ -1,6 +1,7 @@
 import React from 'react'
 import { StaticImage } from "gatsby-plugin-image"
 import { Link } from 'gatsby'
+import { formatType } from '../utils'
 import '../styles/content-card.scss'
 
 const ContentCard = (props) => {
@@ -25,7 +26,7 @@ const ContentCard = (props) => {
                         {title || ''}
                     </Link>
                 </span>
-                <span className='source-nav'># {source || ''}</span>
+                <span className='source-nav'># {formatType(source) || ''}</span>
             </div>
             <div className='content-card-description'>{children.description || ''}</div>
             <div className='content-card-tags'>
