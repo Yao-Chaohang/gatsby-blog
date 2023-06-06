@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import '../styles/content-card.scss'
 
 const ContentCard = (props) => {
-    const { name, time, title, source, tags, contentType, slug, children } = props
+    const { name, time, title, source, tags, slug, children } = props
     return (
         <div className="content-card">
             <div className="content-card-header">
@@ -17,9 +17,9 @@ const ContentCard = (props) => {
                 </div>
             </div>
             <div className='content-card-title'>
-                <span className='content-type'>
-                    { contentType === '0' ? <span className='transshipment'>[转载]</span> : <span className='original'>[原创]</span> }
-                </span>
+                {/* <span className='content-type'>
+                    { type === '0' ? <span className='transshipment'>[转载]</span> : <span className='original'>[原创]</span> }
+                </span> */}
                 <span className='title'>
                     <Link to={`/${slug}`}>
                         {title || ''}

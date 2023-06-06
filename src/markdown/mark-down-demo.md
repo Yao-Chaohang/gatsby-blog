@@ -8,7 +8,6 @@ tags:
  - Vue
  - JavaScript
 categories: 前端开发
-contentType: 1
 ---
 
 ## 这是一个标题
@@ -27,4 +26,4 @@ function demo() {
 }
 ```
 
-contentType: 0 转载 | 1原创
+type: 0 转载 | 1原创
