@@ -19,8 +19,8 @@ const BlogPostTemplate = ({data}) => {
 }
 
 export const pageQuery = graphql`
-    query($id: String) {
-        markdownRemark(id: {eq: $id}) {
+    query($slug: String) {
+        markdownRemark(fields: { slug: { eq: $slug } }) {
             html
             frontmatter {
                 categories
