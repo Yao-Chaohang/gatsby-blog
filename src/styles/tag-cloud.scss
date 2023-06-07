@@ -1,0 +1,12 @@
+.tag-cloud {
+    padding: 10px 10px 20px 10px;
+    background-color: #ffffff;
+    .ant-tag {
+        padding: 7px 15px;
+        font-size: 15px;
+        cursor: pointer;
+        &:hover {
+            background-color: #c2c2c2;
+        }
+    }
+}
