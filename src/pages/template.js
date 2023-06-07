@@ -1,5 +1,6 @@
 import * as React from "react"
 import { graphql } from "gatsby"
+import BreadcrumbSite from '../components/Breadcrumb'
 import '../styles/content-template.scss'
 
 const BlogPostTemplate = ({data}) => {
@@ -8,13 +9,16 @@ const BlogPostTemplate = ({data}) => {
     const { frontmatter, html } = markdownRemark
 
     return (
-        <div className="content-template">
-            <h1>{frontmatter.title}</h1>
-            <h2>{frontmatter.date}</h2>
-            <div
-            dangerouslySetInnerHTML={{ __html: html }}
-            />
-        </div>
+        <>
+            <BreadcrumbSite classification={frontmatter.categories} detailPage={frontmatter.title} />
+            <div className="content-template">
+                <h1>{frontmatter.title}</h1>
+                <h2>{frontmatter.date}</h2>
+                <div
+                dangerouslySetInnerHTML={{ __html: html }}
+                />
+            </div>
+        </>
     )
 }
 

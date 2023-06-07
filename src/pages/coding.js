@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import ContentCard from "../components/ContentCard"
+import BreadcrumbSite from '../components/Breadcrumb'
 
 const Coding = () => {
     const { allMarkdownRemark } = useStaticQuery(graphql`
@@ -35,6 +36,7 @@ const Coding = () => {
 
     return (
         <div className='coding'>
+            <BreadcrumbSite classification="coding" />
             {
                 contentList && contentList.map((item, index) => {
                     return (

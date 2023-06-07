@@ -36,6 +36,10 @@ const IndexPage = () => {
 
   return (
     <main className="home">
+      <div className="top">
+        <h2>动态</h2>
+        <h3>Activity</h3>
+      </div>
       <div className="content">
         {
           contentList && contentList.map((item, index) => {

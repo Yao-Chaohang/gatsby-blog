@@ -1,4 +1,17 @@
 .home {
+  .top {
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+    background-color: #ffffff;
+    h2 {
+      font-size: 14px;
+      color: var(--theme-antd);
+    }
+    h3 {
+      font-size: 13px;
+      color: var(--theme-text);
+    }
+  }
   .content {
     // padding: 20px;
     // background-color: #ffffff;

@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import ContentCard from "../components/ContentCard"
+import BreadcrumbSite from '../components/Breadcrumb'
 
 const Everyday = () => {
     const { allMarkdownRemark } = useStaticQuery(graphql`
@@ -35,6 +36,7 @@ const Everyday = () => {
 
     return (
         <div className='everyday'>
+            <BreadcrumbSite classification="everyday" />
             {
                 contentList && contentList.map((item, index) => {
                     return (
@@ -47,9 +49,9 @@ const Everyday = () => {
                         slug={item.node.slug}
                     >
                         {
-                        {
-                            'description': <span>{item.node.excerpt}</span>
-                        }
+                            {
+                                'description': <span>{item.node.excerpt}</span>
+                            }
                         }
                     </ContentCard>
                     )
