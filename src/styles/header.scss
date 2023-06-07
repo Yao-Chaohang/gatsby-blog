@@ -62,6 +62,12 @@ $screenIphoneSize: 900px;
       svg {
         display: block;
       }
+      .help {
+        margin-right: 10px;
+        font-size: 14px;
+        color: var(--theme-title);
+        white-space: nowrap;
+      }
       .search {
         margin-right: 10px;
         .ant-input-search {
@@ -99,6 +105,9 @@ $screenIphoneSize: 900px;
       svg {
         display: block;
       }
+      .help {
+        display: none;
+      }
       .search {
         margin-right: 5px;
         .ant-input-search {
@@ -106,7 +115,7 @@ $screenIphoneSize: 900px;
         }
       }
       .user {
-        margin-left: 5px;
+        display: none;
       }
     }
   }

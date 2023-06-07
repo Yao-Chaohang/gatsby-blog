@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import hoverEffect from 'hover-effect'
 import { graphql, useStaticQuery, navigate } from 'gatsby'
 import { StaticImage } from "gatsby-plugin-image"
-import { Menu, Avatar, Input, Drawer } from 'antd'
+import { Menu, Avatar, Input, Drawer,Tour } from 'antd'
 import { UserOutlined, AlignLeftOutlined, CloseOutlined } from '@ant-design/icons'
 import banner1 from '../images/banner1.jpg'
 import banner2 from '../images/banner2.jpg'
@@ -11,6 +11,10 @@ import '../styles/header.scss'
 const { Search } = Input;
 
 const Header = () => {
+  // TODO: 测试使用的logo
+  useEffect(() => {
+    console.log('menu', document.querySelectorAll('.ant-menu-overflow-item'))
+  })
   const { allDataJson: { edges } } = useStaticQuery(graphql`
     query {
       allDataJson {
@@ -28,6 +32,7 @@ const Header = () => {
   
   const [current, setCurrent] = useState('/')
   const [openDrawer, setOpenDrawer] = useState(false)
+  const [isShowTour, setIsShowTour] = useState(false)
 
   const items = edges[0].node.nav.map(item => {
     return {
@@ -35,6 +40,39 @@ const Header = () => {
       key: item.path
     }
   })
+
+  const tourSteps = [
+    {
+      title: '首页',
+      description: '网站文章所有内容，根据最新更新时间排列',
+      target: () => document.querySelectorAll('.ant-menu-overflow-item')[0]
+    },
+    {
+      title: '代码人生',
+      description: '这里展示的内容全部是有关编程代码的一些文章列表',
+      target: () => document.querySelectorAll('.ant-menu-overflow-item')[1]
+    },
+    {
+      title: '生活圈',
+      description: '这里展示的内容为生活的所见所闻、生活趣事、分享生活这类相关的内容',
+      target: () => document.querySelectorAll('.ant-menu-overflow-item')[2]
+    },
+    {
+      title: '标签云',
+      description: '这里将网站内所有的标签统一归类展示了出来，可以根据标签快速找到相关的文章',
+      target: () => document.querySelectorAll('.ant-menu-overflow-item')[3]
+    },
+    {
+      title: '友情链接',
+      description: '这里展示了作者认为好用且可以提高效率的一些网站以及自己的一些开源项目链接',
+      target: () => document.querySelectorAll('.ant-menu-overflow-item')[4]
+    },
+    {
+      title: '关于更多作者信息',
+      description: '点击此按钮来查看作者的更多信息',
+      target: () => document.getElementById('get-user-info')
+    }
+  ]
 
   const menuClick = (e) => {
     onClose()
@@ -73,6 +111,9 @@ const Header = () => {
         </nav>
       </div>
       <div className='header-right'>
+        <div className='help'>
+          <button onClick={() => setIsShowTour(true)}>帮助</button>
+        </div>
         <div className='search'>
         <Search placeholder="搜索" onSearch={onSearch} />
         </div>
@@ -124,6 +165,8 @@ const Header = () => {
           </ul>
         </div>
       </Drawer>
+
+      <Tour open={isShowTour} onClose={() => setIsShowTour(false)} steps={tourSteps} />
     </header>
   )
 }

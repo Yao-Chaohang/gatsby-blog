@@ -16,7 +16,7 @@ const UserInfo = () => {
                 <li>拥有60+年的前端开发经验</li>
                 <li>前端开发项目：576217628</li>
             </ul>
-            <Button type="primary" icon={<UserOutlined />}>关于更多作者信息</Button>
+            <Button id="get-user-info" type="primary" icon={<UserOutlined />}>关于更多作者信息</Button>
         </div>
     )
 }
