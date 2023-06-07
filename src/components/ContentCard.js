@@ -1,6 +1,7 @@
 import React from 'react'
 import { StaticImage } from "gatsby-plugin-image"
 import { Link } from 'gatsby'
+import { Watermark } from 'antd'
 import { formatType } from '../utils'
 import '../styles/content-card.scss'
 
@@ -17,27 +18,29 @@ const ContentCard = (props) => {
                     <span>{time || ''}</span>
                 </div>
             </div>
-            <div className='content-card-title'>
-                {/* <span className='content-type'>
-                    { type === '0' ? <span className='transshipment'>[转载]</span> : <span className='original'>[原创]</span> }
-                </span> */}
-                <span className='title'>
-                    <Link to={`/${slug}`}>
-                        {title || ''}
-                    </Link>
-                </span>
-                <span className='source-nav'># {formatType(source) || ''}</span>
-            </div>
-            <div className='content-card-description'>{children.description || ''}</div>
-            <div className='content-card-tags'>
-                {
-                    tags && tags.map((tag, index) => {
-                        return (
-                            <span key={index} className='content-card-tag'># {tag}</span>
-                        )
-                    })
-                }
-            </div>
+            <Watermark content="chaohangweb.cn" gap={[50, 50]}>
+                <div className='content-card-title'>
+                    {/* <span className='content-type'>
+                        { type === '0' ? <span className='transshipment'>[转载]</span> : <span className='original'>[原创]</span> }
+                    </span> */}
+                    <span className='title'>
+                        <Link to={`/${slug}`}>
+                            {title || ''}
+                        </Link>
+                    </span>
+                    <span className='source-nav'># {formatType(source) || ''}</span>
+                </div>
+                <div className='content-card-description'>{children.description || ''}</div>
+                <div className='content-card-tags'>
+                    {
+                        tags && tags.map((tag, index) => {
+                            return (
+                                <span key={index} className='content-card-tag'># {tag}</span>
+                            )
+                        })
+                    }
+                </div>
+            </Watermark>
         </div>
     )
 }

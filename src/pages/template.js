@@ -1,5 +1,6 @@
 import * as React from "react"
 import { graphql } from "gatsby"
+import { Watermark } from 'antd'
 import BreadcrumbSite from '../components/Breadcrumb'
 import '../styles/content-template.scss'
 
@@ -10,14 +11,16 @@ const BlogPostTemplate = ({data}) => {
 
     return (
         <>
-            <BreadcrumbSite classification={frontmatter.categories} detailPage={frontmatter.title} />
-            <div className="content-template">
-                <h1>{frontmatter.title}</h1>
-                <h2>{frontmatter.date}</h2>
-                <div
-                dangerouslySetInnerHTML={{ __html: html }}
-                />
-            </div>
+            <Watermark content="chaohangweb.cn" gap={[150, 150]}>
+                <BreadcrumbSite classification={frontmatter.categories} detailPage={frontmatter.title} />
+                <div className="content-template">
+                    <h1>{frontmatter.title}</h1>
+                    <h2>{frontmatter.date}</h2>
+                    <div
+                    dangerouslySetInnerHTML={{ __html: html }}
+                    />
+                </div>
+            </Watermark>
         </>
     )
 }
