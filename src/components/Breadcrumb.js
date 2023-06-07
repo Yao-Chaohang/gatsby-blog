@@ -5,7 +5,6 @@ import { formatType } from '../utils'
 import '../styles/breadcrumb.scss'
 
 const BreadcrumbSite = (props) => {
-    console.log('host:', window.location.host)
     const [item, setItem]  = useState([{title: <Link to='/'>首页</Link>}])
 
     useEffect(() => {
