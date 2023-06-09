@@ -106,10 +106,12 @@ const Header = () => {
       }
     })
     const current = navList.find(item => item === path)
-    if (current === '/') {
-      setCurrent('/')
-    } else {
-      setCurrent(current.substring(0, current.length - 1))
+    if (current) {
+      if (current === '/') {
+        setCurrent('/')
+      } else {
+        setCurrent(current.substring(0, current.length - 1))
+      }
     }
   })
 
