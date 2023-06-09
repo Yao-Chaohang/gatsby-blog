@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import hoverEffect from 'hover-effect'
 import { graphql, useStaticQuery, navigate } from 'gatsby'
-import { StaticImage } from "gatsby-plugin-image"
+import { StaticImage } from 'gatsby-plugin-image'
 import { Menu, Avatar, Input, Drawer,Tour } from 'antd'
 import { UserOutlined, AlignLeftOutlined, CloseOutlined } from '@ant-design/icons'
 import banner1 from '../images/banner1.jpg'
@@ -11,10 +11,6 @@ import '../styles/header.scss'
 const { Search } = Input;
 
 const Header = () => {
-  // TODO: 测试使用的logo
-  useEffect(() => {
-    console.log('menu', document.querySelectorAll('.ant-menu-overflow-item'))
-  })
   const { allDataJson: { edges } } = useStaticQuery(graphql`
     query {
       allDataJson {
@@ -99,15 +95,33 @@ const Header = () => {
     setOpenDrawer(false);
   }
 
+  useEffect(() => {
+    const host = window.location.host
+    const path = window.location.href.replace('http://','').replace('https://','').replace(host, '')
+    const navList = items.map(item => {
+      if (item.key !== '/') {
+        return `${item.key}/`
+      } else {
+        return item.key
+      }
+    })
+    const current = navList.find(item => item === path)
+    if (current === '/') {
+      setCurrent('/')
+    } else {
+      setCurrent(current.substring(0, current.length - 1))
+    }
+  })
+
   return (
     <header className='header'>
       <div className='header-left'>
         <div className='menu-icon'>
           <AlignLeftOutlined style={{ fontSize: '24px' }} onClick={showDrawer} />
         </div>
-        <div className='logo'><StaticImage src="../images/logo.png" alt="logo" /></div>
+        <div className='logo'><StaticImage src='../images/logo.png' alt='logo' /></div>
         <nav className='nav'>
-        <Menu onClick={menuClick} selectedKeys={[current]} mode="horizontal" items={items} />
+        <Menu onClick={menuClick} selectedKeys={[current]} mode='horizontal' items={items} />
         </nav>
       </div>
       <div className='header-right'>
@@ -115,21 +129,21 @@ const Header = () => {
           <button onClick={() => setIsShowTour(true)}>帮助</button>
         </div>
         <div className='search'>
-        <Search placeholder="搜索" onSearch={onSearch} />
+        <Search placeholder='搜索' onSearch={onSearch} />
         </div>
         <div className='user'>
-          <Avatar size="large" icon={<UserOutlined />} />
+          <Avatar size='large' icon={<UserOutlined />} />
         </div>
       </div>
 
       <Drawer
-        rootClassName="menu-drawer"
-        placement="left"
+        rootClassName='menu-drawer'
+        placement='left'
         closable={true}
         onClose={onClose}
         open={openDrawer}
-        key="left"
-        width="70%"
+        key='left'
+        width='70%'
         bodyStyle={{ padding: '0' }}
         headerStyle={{ width: '100%', padding: '5px 10px', border: 'none', position: 'absolute' }}
         closeIcon={
@@ -143,7 +157,7 @@ const Header = () => {
           { openDrawer && <div className='drawer-banner-image'></div> }
           <div className='user'>
             <div className='avatar'>
-              <StaticImage src="../images/avatar.jpg" alt="logo" />
+              <StaticImage src='../images/avatar.jpg' alt='logo' />
             </div>
             <div className='info'>
               <h4>像素脉动</h4>
