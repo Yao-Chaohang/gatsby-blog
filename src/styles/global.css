@@ -7,3 +7,7 @@
     --theme-title: #424242;
     --theme-text: #5e5e5e;
 }
+
+* {
+    font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, "PingFang SC", Cambria, Cochin, Georgia, Times, "Times New Roman", serif !important;
+}
