@@ -17,6 +17,7 @@
   "dependencies": {
     "@deckdeckgo/highlight-code": "^3.6.0",
     "antd": "^5.5.1",
+    "devtools-detector": "^2.0.14",
     "gatsby": "^5.10.0",
     "gatsby-plugin-image": "^3.10.0",
     "gatsby-plugin-layout": "^4.10.0",

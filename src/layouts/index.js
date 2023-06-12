@@ -1,9 +1,10 @@
-import * as React from "react"
+import React, { useLayoutEffect } from "react"
 import { graphql, useStaticQuery } from 'gatsby'
 import Header from '../components/Header'
 import Banner from '../components/Banner'
 import UserInfo from "../components/UserInfo"
 import Card from '../components/Card'
+import { addListener, launch } from 'devtools-detector'
 import { ConfigProvider } from 'antd'
 import zhCN from 'antd/locale/zh_CN'
 import { CalendarOutlined, FileTextOutlined } from '@ant-design/icons'
@@ -50,6 +51,33 @@ const Layout = ({ children }) => {
         contentList[index].node.slug = allMarkdownRemark.nodes[index].fields.slug
     })
     const announcement = nodes[1].announcement
+
+    useLayoutEffect(() => {
+        const view = document.createElement('div')
+        view.style.position = 'fixed'
+        view.style.top = '0'
+        view.style.left = '0'
+        view.style.width = '100vw'
+        view.style.height = '100vh'
+        view.style.display = 'flex'
+        view.style.justifyContent = 'center'
+        view.style.alignItems = 'center'
+        view.innerHTML = '<span>你就把这个当成404吧!</span>'
+        const ___gatsby = document.getElementById('___gatsby')
+
+        addListener(
+            isOpen => {
+                if (isOpen) {
+                    document.body.removeChild(___gatsby)
+                    document.body.appendChild(view)
+                } else {
+                    document.body.removeChild(view)
+                    document.body.appendChild(___gatsby)
+                }
+            }
+        );
+        launch()
+    })
 
     return (
         <ConfigProvider locale={zhCN}>
